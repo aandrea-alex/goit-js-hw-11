@@ -5,6 +5,7 @@
 
 @import url('./base/common.css');
 @import url('./base/container.css');
+@import url('./layout/search-images-form.css');
 
 :root {
   font-family: 'Montserrat', sans-serif;
