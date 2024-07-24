@@ -1,6 +1,11 @@
 const BGR_GALLERY = '#ffffff';
 const BGR_BODY = '#f5f5f5';
 
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
+import iconXUrl from './img/bi-x-octagon.svg';
+import iconOkUrl from './img/bi_check.svg';
+
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
@@ -8,8 +13,10 @@ import '../src/css/layout/simple-lightbox-window.css';
 import iconsUrl from '../src/img/icons.svg';
 
 import getImages from './js/pixabay-api.js';
+import createCadsGallery from './js/render-functions.js';
 
 const galleryRef = document.querySelector('.gallery');
+console.log('galleryRef', galleryRef);
 const loaderRef = document.querySelector('.loader');
 const searchForm = document.querySelector('.search-form');
 
@@ -51,7 +58,7 @@ function onSearchFormSubmit(event) {
 function refreshOnError(msg) {
   searchForm.search.value = '';
   loaderRef.style.display = 'none';
-  createErrMsg(msg);
+  // createErrMsg(msg);
   galleryRef.style.backgroundColor = BGR_BODY;
   galleryRef.innerHTML = '';
   slBox.refresh();
@@ -61,7 +68,8 @@ function refreshOnSuccess(data) {
   searchForm.search.value = '';
   loaderRef.style.display = 'none';
   galleryRef.style.backgroundColor = BGR_GALLERY;
-  createCardsGallery(data, galleryRef);
+  console.log('refreshOnSuccess: ',data);
+  createCadsGallery(data, galleryRef);
   slBox.refresh();
 }
 

@@ -44,6 +44,5 @@ const cardMarkup = card => {
     galleryRef.insertAdjacentHTML('beforeend', cardsMarkup);
   }
   
-  export { createCardsMarkup };
   export default createCadsGallery;
   

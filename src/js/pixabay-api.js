@@ -1,6 +1,6 @@
 
 const API_URL = 'https://pixabay.com/api/';
-const API_KEY = '';
+const API_KEY = '45097431-2d8d6a9f4785bbcc4049d8cdd';
 
 const fetchData = url =>
     new Promise((resolve, reject) =>
@@ -30,7 +30,7 @@ const fetchData = url =>
       return new Promise((resolve, reject) => {
         fetchData(url)
           .then(data => {
-            if (!data.hits.length) {
+            if (!data.hits.length) { 
               reject(
                 'Sorry, there are no images matching your search query. Please, try again!'
               );
