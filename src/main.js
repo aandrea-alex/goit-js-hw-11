@@ -16,7 +16,6 @@ import getImages from './js/pixabay-api.js';
 import createCadsGallery from './js/render-functions.js';
 
 const galleryRef = document.querySelector('.gallery');
-console.log('galleryRef', galleryRef);
 const loaderRef = document.querySelector('.loader');
 const searchForm = document.querySelector('.search-form');
 
@@ -58,7 +57,7 @@ function onSearchFormSubmit(event) {
 function refreshOnError(msg) {
   searchForm.search.value = '';
   loaderRef.style.display = 'none';
-  // createErrMsg(msg);
+  createErrMsg(msg);
   galleryRef.style.backgroundColor = BGR_BODY;
   galleryRef.innerHTML = '';
   slBox.refresh();
@@ -68,7 +67,6 @@ function refreshOnSuccess(data) {
   searchForm.search.value = '';
   loaderRef.style.display = 'none';
   galleryRef.style.backgroundColor = BGR_GALLERY;
-  console.log('refreshOnSuccess: ',data);
   createCadsGallery(data, galleryRef);
   slBox.refresh();
 }
