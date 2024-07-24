@@ -1,6 +1,5 @@
-
 const API_URL = 'https://pixabay.com/api/';
-const API_KEY = '45097431-2d8d6a9f4785bbcc4049d8cdd';
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 const fetchData = url =>
     new Promise((resolve, reject) =>
