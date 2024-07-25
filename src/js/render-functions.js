@@ -1,9 +1,8 @@
-
 const cardMarkup = card => {
-    const { largeImageURL, previewURL, tags, likes, views, comments, downloads } =
-      card;
-  
-    return `<li class='card'> 
+  const { largeImageURL, previewURL, tags, likes, views, comments, downloads } =
+    card;
+
+  return `<li class='card'> 
               <a class='card-link' href='${largeImageURL}'>                    
                 <div class='card-cover-inner'>                
                     <img class='card-cover'
@@ -32,17 +31,16 @@ const cardMarkup = card => {
                   </div>
               </div>
           </li>`;
-  };
-  
-  function createCardsMarkup(cards) {
-    return cards.map(cardMarkup).join('');
-  }
-  
-  function createCadsGallery(cardsArray, galleryRef) {
-    const cardsMarkup = createCardsMarkup(cardsArray);
-    galleryRef.innerHTML = '';
-    galleryRef.insertAdjacentHTML('beforeend', cardsMarkup);
-  }
-  
-  export default createCadsGallery;
-  
+};
+
+function createCardsMarkup(cards) {
+  return cards.map(cardMarkup).join('');
+}
+
+function createCadsGallery(cardsArray, galleryRef) {
+  const cardsMarkup = createCardsMarkup(cardsArray);
+  galleryRef.innerHTML = '';
+  galleryRef.insertAdjacentHTML('beforeend', cardsMarkup);
+}
+
+export default createCadsGallery;

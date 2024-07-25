@@ -1,17 +1,10 @@
-const BGR_GALLERY = '#ffffff';
-const BGR_BODY = '#f5f5f5';
-
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 import iconXUrl from './img/bi-x-octagon.svg';
-import iconOkUrl from './img/bi_check.svg';
-
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
-
 import '../src/css/layout/simple-lightbox-window.css';
 import iconsUrl from '../src/img/icons.svg';
-
 import getImages from './js/pixabay-api.js';
 import createCadsGallery from './js/render-functions.js';
 
@@ -58,7 +51,7 @@ function refreshOnError(msg) {
   searchForm.search.value = '';
   loaderRef.style.display = 'none';
   createErrMsg(msg);
-  galleryRef.style.backgroundColor = BGR_BODY;
+  galleryRef.style.backgroundColor = '#f5f5f5';
   galleryRef.innerHTML = '';
   slBox.refresh();
 }
@@ -66,38 +59,22 @@ function refreshOnError(msg) {
 function refreshOnSuccess(data) {
   searchForm.search.value = '';
   loaderRef.style.display = 'none';
-  galleryRef.style.backgroundColor = BGR_GALLERY;
+  galleryRef.style.backgroundColor = '#ffffff';
   createCadsGallery(data, galleryRef);
   slBox.refresh();
 }
 
 function createErrMsg(msg) {
-    iziToast.show({
-      message: msg,
-      messageColor: '#fafafb',
-      messageSize: '16px',
-      backgroundColor: '#fc5a5a',
-      position: 'topRight',
-      closeOnEscape: true,
-      close: true,
-      icon: 'Icomoon',
-      iconUrl: `${iconXUrl}`,
-      iconColor: '#fafafb',
-    });
-  }
-  
-  function createOkMsg(msg) {
-    iziToast.show({
-      message: msg,
-      messageColor: '#fafafb',
-      messageSize: '16px',
-      backgroundColor: '#82C43C',
-      position: 'topRight',
-      closeOnEscape: true,
-      close: true,
-      icon: 'Icomoon',
-      iconUrl: `${iconOkUrl}`,
-      iconColor: '#fafafb',
-    });
-  }
-  
+  iziToast.show({
+    message: msg,
+    messageColor: '#fafafb',
+    messageSize: '16px',
+    backgroundColor: '#fc5a5a',
+    position: 'topRight',
+    closeOnEscape: true,
+    close: true,
+    icon: 'Icomoon',
+    iconUrl: `${iconXUrl}`,
+    iconColor: '#fafafb',
+  });
+}
